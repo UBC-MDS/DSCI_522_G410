@@ -1,7 +1,7 @@
 # Contributor Covenant Code of Conduct
 
 ## Introduction
-For our 532 - Visualization II project, we are commited to creating a friendly and respectful environment to share our ideas and work in the depevolpment of an interactive app. 
+For our 522 - Data Science Workflows project, we are commited to creating a friendly and respectful environment to share our ideas and work in the depevolpment of an interactive app. 
   
 ## Our Pledge
 
