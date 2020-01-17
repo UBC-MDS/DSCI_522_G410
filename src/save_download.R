@@ -1,4 +1,4 @@
-# author: Huayue Lu
+# author: Huayue Lu G410
 # date: 2020-01-17
 #
 # This script download and save the data that are in CSV 
