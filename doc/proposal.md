@@ -2,15 +2,15 @@
 
 ## Data Source and Description
 
-For this project, we will be using the [Fifa 19 complete player dataset](https://www.kaggle.com/karangadiya/fifa19) [1].  The dataset includes about 80 attributes for all soccer players in FIFA 2019 (over 18,000 total!).  Attributes include basic information such as player age, nationality, club, position, wage, fifa rating (as a measure of overall quality) as well as more detailed characteristics such as stamina, strength, interceptions, etc.  
+For this project, we will be using the [Fifa 19 complete player dataset](https://www.kaggle.com/karangadiya/fifa19) [1].  The dataset includes about 80 attributes for all soccer players in FIFA 2019 (over 18,000 total!).  Attributes include basic information such as player age, nationality, club, position, wage, Fifa rating (as a measure of overall quality) as well as more detailed characteristics such as stamina, strength, interceptions, etc.  
 
-So far we are only planning to make the following minor additions / changes to the dataset for our project:
- - Filter out extraneous extraneous attributes to make the number of features more manageable. For example, there are over 20 attributes that describe a player's performance rating in each possible position.  We plan to remove these and only use the primary player position and overall rating in our analysis.  After EDA and/or early model runs we will likely find more features that can be screened out.
+So far we are only planning to make the following minor additions /changes to the dataset for our project:
+ - Filter out extraneous attributes to make the number of features more manageable. For example, there are over 20 attributes that describe a player's performance rating in each possible position.  We plan to remove these and only use the primary player position and overall rating in our analysis.  After EDA and/or early model runs we will likely find more features that can be screened out.
  - Create a new `BMI` column based on the player `weight` and `height` attributes.
 
 ## Research Question
 
-It's no secret that soccer players make exorbant amounts of money.  Our main research question is a **predictive** question that asks: ***"What are the most important features in determining a football (soccer) player's salary?".***
+It's no secret that soccer players make exorbitant amounts of money.  Our main research question is a **predictive** question that asks: ***"What are the most important features in determining a football (soccer) player's salary?".***
 
 Some sub-questions that we also plan to address include:
  - Are salaries correlated with ratings? If there is a strong correlation (which we would expect), we might be able to infer that the most important features for predicting salary might also be the best for predicting player quality/rating.
@@ -57,15 +57,15 @@ This could be a simple scatter plot with a regression fit line.
 
 *Who are the most overpaid and underpaid players in the world? Is there a trend by country/league/teams?*
 
-This could be presented as a bar plot showing a selected number (i.e. 10 or 20) of the best and worst performing clubs colour-coded by league.
+This could be presented as a bar plot showing a selected number (i.e. 10 or 20) of the best and worst-performing clubs colour-coded by league.
 
 *Are domestic players valued more highly than foreign players?*
  
- This could be presented as a box plot or rideline plot showing the mean and distribution of domestic vs foreign player value.  We would also report the results of the hypothesis test with a significance level.
+ This could be presented as a box plot or ridgeline plot showing the mean and distribution of domestic vs foreign player value.  We would also report the results of the hypothesis test with a significance level.
  
  *Which clubs have the best and worst economy in terms of a player potential to wage ratio?*
 
-This could also be shown as a bar plot showing a selected number (i.e. 10) of the best and worst performing clubs colour-coded by league.
+This could also be shown as a bar plot showing a selected number (i.e. 10) of the best and worst-performing clubs colour-coded by league.
 
  *Are different features more important for different positions?*
 
