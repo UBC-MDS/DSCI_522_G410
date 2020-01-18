@@ -8,15 +8,20 @@
 
 library(tidyverse)
 library(testthat)
-
+link <- "https://raw.githubusercontent.com/mglu123/live_dash_demo/master/data-2.csv"
 main <- function(){
-  
   # read in data
-  data_fifa <- read.csv("https://raw.githubusercontent.com/mglu123/live_dash_demo/master/data-2.csv")
+  data_fifa <- read.csv(link)
   
   # save the  data
   write.csv(data_fifa,'data_fifa.csv')
 }
 
+test_main <- function() {
+  test_that("url's data type is character", {
+    expect_equal(typeof(link), "character")
+  })
+}
+test_main()
 
 main()
