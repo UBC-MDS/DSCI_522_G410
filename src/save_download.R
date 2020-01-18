@@ -8,6 +8,7 @@
 
 library(tidyverse)
 library(testthat)
+library(RCurl)
 link <- "https://raw.githubusercontent.com/mglu123/live_dash_demo/master/data-2.csv"
 main <- function(){
   # read in data
@@ -18,8 +19,8 @@ main <- function(){
 }
 
 test_main <- function() {
-  test_that("url's data type is character", {
-    expect_equal(typeof(link), "character")
+  test_that("test url is existed or not", {
+    expect_true(url.exists(link))
   })
 }
 test_main()
