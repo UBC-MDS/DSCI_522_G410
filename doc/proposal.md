@@ -37,7 +37,6 @@ To analyze the data, we are planning to do the following (some of which may chan
     - Null hypothesis: the average value (rating/wage) of domestic players and foreign players is the same.
     - Alternative hypothesis: the average value of domestic players is higher.
 
-- **Investigate whether the overall trends **
 
 ### EDA
 
