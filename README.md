@@ -20,6 +20,8 @@ Some sub-questions that we also plan to address include:
  - Are different features more important for different positions?
 
  To answer our primary question we plan to fit a logistic regression model and compare the weights of key features.  Additional details can be found in our [project proposal](https://github.com/UBC-MDS/DSCI_522_G410/blob/master/doc/proposal.md).
+ 
+ So far we have performed some exploratory data analysis, and the report for that can be found [here](https://github.com/UBC-MDS/DSCI_522_G410/blob/master/src/EDA.ipynb).
 
 ## Usage
 
