@@ -35,7 +35,9 @@ TBD
 
 - [Code of Conduct](https://github.com/UBC-MDS/DSCI_522_G410/blob/master/CODE_OF_CONDUCT.md)
 - [License](https://github.com/UBC-MDS/DSCI_522_G410/blob/master/LICENSE)
-
+- [Contributing](https://github.com/UBC-MDS/DSCI_522_G410/blob/master/CONTRIBUTING.md)
+- [Proposal](https://github.com/UBC-MDS/DSCI_522_G410/blob/master/doc/proposal.md)
+- [EDA](https://github.com/UBC-MDS/DSCI_522_G410/blob/master/src/EDA.ipynb)
 
 ### References
 
