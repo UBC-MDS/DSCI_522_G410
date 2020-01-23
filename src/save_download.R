@@ -10,6 +10,11 @@ and data_fifa_test.csv for test dataset in specified absolute path.
 Usage: download_save.R <file_path_train> <file_path_test> <url>
 " -> doc
 
+# example to run: Rscript src/save_download.R 
+# '/Users/huayuelu/Desktop/DSCI_522_G410/data/fifa_data_train.csv' 
+# '/Users/huayuelu/Desktop/DSCI_522_G410/data/fifa_data_test.csv' 
+# https://raw.githubusercontent.com/mglu123/live_dash_demo/master/data-2.csv
+
 library(tidyverse)
 library(testthat)
 library(docopt)
