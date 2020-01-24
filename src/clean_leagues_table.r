@@ -67,7 +67,7 @@ main <- function(league_raw, fifa_test, fifa_train, out_dir){
     combined_df <- inner_join(league_data_top_5, fifa_data, by='Club') %>% 
       select('Club', 'League', 'Country', 'Name', 'Age', 'Nationality', 'Overall', 'Wage') %>% 
       mutate('Salary (M)' = Wage * 52 / 1000,
-             'Domestic or Foreign' = ifelse(Nationality == Country, "Domestic", "Foreign"),
+             'Domestic' = ifelse(Nationality == Country, 1, 0),
              'Overpaid_Index' = (`Salary (M)` / Overall * 1000))
     # save the data
     write.csv(combined_df, paste0(out_dir, "combined_league_data.csv"))
