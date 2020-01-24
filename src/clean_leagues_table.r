@@ -6,25 +6,22 @@
 originally sourced from https://www.ea.com/games/fifa/news/fifa-19-leagues-and-teams).
 Writes the training and test data to separate feather files.
 
-Usage: src/clean_leagues_table.r --input_1=<input_1> --input_2=<input_2> --out_dir=<out_dir>
+Usage: src/clean_leagues_table.r --league_raw=<league_raw> --fifa_test=<fifa_test> --fifa_train=<fifa_train> --out_dir=<out_dir>
 
 Options:
---input_1=<input>     Path (including filename) to raw league data (csv file)
---input_2=<input>     Path (including filename) to cleaned fifa data (csv file)
+--league_raw=<league_raw>     Path (including filename) to raw league data (csv file)
+--fifa_test=<fifa_test>       Path (including filename) to cleaned fifa test data (csv file)
+--fifa_train=<fifa_train>      Path (including filename) to cleaned fifa train data (csv file)
 --out_dir=<out_dir>   Path to directory where the processed data should be written
 " -> doc
 
-#library(feather)
 library(tidyverse)
-#library(caret)
 library(docopt)
-#library(scales)
-set.seed(1234)
 
 opt <- docopt(doc)
-main <- function(input_1, input_2, out_dir){
-  # reads in data and cleans up team names (only focuesses on top 5 leagues)
-  league_data <- read_csv(input_1) %>% 
+main <- function(league_raw, fifa_test, fifa_train, out_dir){
+  # reads in data and cleans up team names (only focusses on top 5 leagues)
+  league_data <- read_csv(league_raw) %>% 
     mutate(Club = str_replace(Club, "\\bUtd\\b", "United"),
            Club = case_when(Club == 'Dortmund' ~ 'Borussia Dortmund',
                             Club == 'OL' ~ 'Olympique Lyonnais',
@@ -60,7 +57,9 @@ main <- function(input_1, input_2, out_dir){
                             Club == 'Brighton' ~ 'Brighton & Hove Albion',
                             TRUE ~ Club))
     # reads in fifa data
-    fifa_data <- read_csv(input_2)
+    fifa_test_df <- read_csv(fifa_test)
+    fifa_train_df <- read_csv(fifa_train)
+    fifa_data <- rbind(fifa_test_df, fifa_train_df)
     # only includes top 5 leagues
     league_data_top_5 <- league_data %>% 
       filter(League %in% c('Premier League', 'LaLiga', 'Bundesliga', 'Serie A', 'Ligue 1'))
@@ -74,4 +73,4 @@ main <- function(input_1, input_2, out_dir){
     write.csv(combined_df, paste0(out_dir, "combined_league_data.csv"))
 }
 
-main(opt[["--input_1"]], opt[["--input_2"]], opt[["--out_dir"]])
+main(opt[["--league_raw"]], opt[["--fifa_test"]], opt[["--fifa_train"]], opt[["--out_dir"]])
