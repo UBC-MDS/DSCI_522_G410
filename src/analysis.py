@@ -1,3 +1,5 @@
+# author: DSCI 522-Group 410
+# date: January 24, 2020
 """This script does ML analysis on the Fifa Soccer dataset and return 
 a plot of weight of different features.
 
