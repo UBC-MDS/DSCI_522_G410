@@ -20,6 +20,7 @@ library(scales)
 anova_1 <- readRDS("../results/anova_1.rds")
 anova_2 <- readRDS("../results/anova_2.rds")
 suppressWarnings(summary_df <- read_csv("../results/summary_model_table.csv"))
+suppressWarnings(wage_corr_df <- read_csv("../results/data/wage_correlation_largest_20.csv"))
 ```
 
 
@@ -33,9 +34,29 @@ For this project, we will attempt to answer the inferential question: **Are dome
 
 ### Data Sources
 
-For this project, we sourced player salaries and attributes from the [Fifa 19 complete player dataset](https://www.kaggle.com/karangadiya/fifa19) [@kaggle_fifa] from [Kaggle](www.kaggle.com). The dataset was downloaded and uploaded to one of our team member's public github repository (see [here](https://raw.githubusercontent.com/mglu123/live_dash_demo/master/data-2.csv)).
+For this project, we sourced player salaries and attributes from the [FIFA 19 complete player dataset](https://www.kaggle.com/karangadiya/fifa19) [@kaggle_fifa] from [Kaggle](www.kaggle.com). The dataset was downloaded and uploaded to one of our team member's public github repository (see [here](https://raw.githubusercontent.com/mglu123/live_dash_demo/master/data-2.csv)).
 
-Unfortunately, the Fifa dataset does not include information on leagues and locations, so we needed another data source to be able to determine whether a player is a domestic or foreign player.  To be able to link clubs with a league location, we manually created a dictionary table of `Club`, `League`, and `Country` values sourced from the official [EA Games website](https://www.ea.com/games/fifa/news/fifa-19-leagues-and-teams) [@fifa] and uploaded it to another public github repo (located [here](https://github.com/hwilliams10/fifa_data/blob/master/clubs_and_leagues.csv)).
+Unfortunately, the FIFA dataset does not include information on leagues and locations, so we needed another data source to be able to determine whether a player is a domestic or foreign player.  To be able to link clubs with a league location, we manually created a dictionary table of `Club`, `League`, and `Country` values sourced from the official [EA Games website](https://www.ea.com/games/fifa/news/fifa-19-leagues-and-teams) [@fifa] and uploaded it to another public github repo (located [here](https://github.com/hwilliams10/fifa_data/blob/master/clubs_and_leagues.csv)).
+
+### Exploratory Data Analysis
+
+Before starting our analysis, we did some exploration on the range of wages using the statistical package python [@python].  One thing we looked at is which features were most strongly correlated with wage. If every player were to receive fair compensation based on their value, we would expect wage to be most strongly associated with their overall FIFA ranking (which is how FIFA measures how valuable a player is).  
+
+```{r}
+# print top 10 features ignoring first three which are other types of wage
+wage_df <- wage_corr_df %>% 
+  rename("Feature" = X1, 
+         "Correlation Coefficient" = "Wage") %>% 
+  mutate(Feature = case_when(Feature == 'Wage' ~ "Weekly Wage ($1000's)",
+                             Feature == 'Overall' ~ "Overall FIFA Ranking",
+                             Feature == 'Special' ~ "Special Skills",
+                             TRUE ~ Feature))
+kable(wage_df[4:9,], caption = "**Table 1. Top 5 Features Correlated with Player Wage (Ignoring Wage/Salary Features)**")
+```
+
+From Table 1, we see that the overall FIFA ranking is reasonably correlated with a player's wage, but not as highly as one might expect. We also see that it is likely that the richest clubs also have the highest paid players which is intuitive.  
+
+*Note: The EDA analysis is performed by the [`eda.py`](../src/eda.py) script in the [`src`](../src/) directory which also exports additional EDA figures not presented in this report.*
 
 ### Assumptions
 
@@ -73,16 +94,16 @@ Once we had our three models, we used the `anova()` function to see if our addit
 - *Comparing additive model to baseline*: adding the extra `League` term in the additive model improved the baseline model at the 0.05 significance level (the p-value was `r scientific(anova_1[['Pr(>F)']][2], 3)`).
 - *Comparing model with interaction to additive*: adding the interaction term significantly improved the additive model at the 0.05 significance level (the p-value was `r scientific(anova_2[['Pr(>F)']][2], 3)`).
 
-Based on these results, we concluded that it was important to use our interaction model and look at the relationship for each league.  The overall results are summarized in Table 1 below.
+Based on these results, we concluded that it was important to use our interaction model and look at the relationship for each league.  The overall results are summarized in Table 2 below.
 
 ```{r summary table}
 df <- summary_df %>% 
   select(-X1) %>% 
   mutate_if(is.numeric, ~ as.character(signif(., 3)))
-kable(df, caption = "**Table 1. Results of Comparing the Relationship of Player Origin to Overpaid Index**")
+kable(df, caption = "**Table 2. Results of Comparing the Relationship of Player Origin to Overpaid Index**")
 ```
 
-From Table 1 we see that there is a difference in the mean overpaid index between domestic and foreign players, however it is not what we expected. Foreign players have a higher mean overpaid index than domestic players. Looking at the p-values, this relationship is significant for 4 out the 5 top leagues. The only exception is France's Ligue 1 where the p-value of 0.115 indicates that the difference in mean overpaid index between domestic and foreign players is not significant at the 0.05 level.
+From Table 2 we see that there is a difference in the mean overpaid index between domestic and foreign players, however it is not what we expected. Foreign players have a higher mean overpaid index than domestic players. Looking at the p-values, this relationship is significant for 4 out the 5 top leagues. The only exception is France's Ligue 1 where the p-value of 0.115 indicates that the difference in mean overpaid index between domestic and foreign players is not significant at the 0.05 level.
 
 Figure 1 shows all the data graphically.
 
@@ -90,7 +111,7 @@ Figure 1 shows all the data graphically.
 
 Looking at the figure, this pattern that foreign players are more overvalued than domestic players becomes more clear. The black diamonds on each plot represent the mean overpaid index and the jittered points in the background represent all players. Even though there is scatter, we see that in most cases (with the exception of LaLiga in Spain), we have more outliers towards the lower end of the overpaid index for foreign players.  This means that if we were to ignore these points, we would see an even stronger pattern that foreign players are generally more overvalued than domestic players.  We also see that upper end of the overpaid index distribution (the most overpaid players) is higher for foreign players in all cases.  It should also be noted that the data has been plotted on a log scale. 
 
-*Note: The analysis described above is performed by the [`analysis_overpaid.r`](../src/analysis_overpaid.ipynb) script in the [`src`](../src/) directory.*
+*Note: The analysis described above is performed by the [`analysis_overpaid.r`](../src/analysis_overpaid.r) script in the [`src`](../src/) directory.*
 
 ## Conclusions
 

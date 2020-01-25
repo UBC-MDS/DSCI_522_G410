@@ -4,6 +4,7 @@ Are Domestic Soccer Players Overpaid?
   - [Introduction](#introduction)
   - [Methodology](#methodology)
       - [Data Sources](#data-sources)
+      - [Exploratory Data Analysis](#exploratory-data-analysis)
       - [Assumptions](#assumptions)
       - [Wrangling and Cleaning](#wrangling-and-cleaning)
       - [Analysis and Results](#analysis-and-results)
@@ -33,13 +34,13 @@ is greater for domestic players than foreign players*.
 ### Data Sources
 
 For this project, we sourced player salaries and attributes from the
-[Fifa 19 complete player
+[FIFA 19 complete player
 dataset](https://www.kaggle.com/karangadiya/fifa19) (Gadiya n.d.) from
 [Kaggle](www.kaggle.com). The dataset was downloaded and uploaded to one
 of our team member’s public github repository (see
 [here](https://raw.githubusercontent.com/mglu123/live_dash_demo/master/data-2.csv)).
 
-Unfortunately, the Fifa dataset does not include information on leagues
+Unfortunately, the FIFA dataset does not include information on leagues
 and locations, so we needed another data source to be able to determine
 whether a player is a domestic or foreign player. To be able to link
 clubs with a league location, we manually created a dictionary table of
@@ -48,6 +49,237 @@ Games
 website](https://www.ea.com/games/fifa/news/fifa-19-leagues-and-teams)
 (Games 2019) and uploaded it to another public github repo (located
 [here](https://github.com/hwilliams10/fifa_data/blob/master/clubs_and_leagues.csv)).
+
+### Exploratory Data Analysis
+
+Before starting our analysis, we did some exploration on the range of
+wages using the statistical package python
+(<span class="citeproc-not-found" data-reference-id="python">**???**</span>).
+One thing we looked at is which features were most strongly correlated
+with wage. If every player were to receive fair compensation based on
+their value, we would expect wage to be most strongly associated with
+their overall FIFA ranking (which is how FIFA measures how valuable a
+player is).
+
+<table>
+
+<caption>
+
+**Table 1. Top 10 Features Correlated with Weekly Wage (Ignoring
+Wage/Salary Features)**
+
+</caption>
+
+<thead>
+
+<tr>
+
+<th style="text-align:left;">
+
+Feature
+
+</th>
+
+<th style="text-align:right;">
+
+Correlation Coefficient
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td style="text-align:left;">
+
+Club\_Value
+
+</td>
+
+<td style="text-align:right;">
+
+0.7277567
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+International.Reputation
+
+</td>
+
+<td style="text-align:right;">
+
+0.6701575
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+Overall FIFA Ranking
+
+</td>
+
+<td style="text-align:right;">
+
+0.6630327
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+Reactions
+
+</td>
+
+<td style="text-align:right;">
+
+0.5352335
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+Potential
+
+</td>
+
+<td style="text-align:right;">
+
+0.5075673
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+Composure
+
+</td>
+
+<td style="text-align:right;">
+
+0.4726412
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+Special Skills
+
+</td>
+
+<td style="text-align:right;">
+
+0.4542754
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+ShortPassing
+
+</td>
+
+<td style="text-align:right;">
+
+0.4338597
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+BallControl
+
+</td>
+
+<td style="text-align:right;">
+
+0.4334185
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+LongPassing
+
+</td>
+
+<td style="text-align:right;">
+
+0.3122152
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+Vision
+
+</td>
+
+<td style="text-align:right;">
+
+0.3115009
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+From Table 1, we see that the overall FIFA ranking is reasonably
+correlated with a player’s wage, but not as highly as one might expect.
+We also see that it is likely that the richest clubs also have the
+highest paid players which is intuitive.
+
+*Note: The EDA analysis is performed by the [`eda.py`](../src/eda.py)
+script in the [`src`](../src/) directory which also exports additional
+EDA figures not presented in this report.*
 
 ### Assumptions
 
@@ -367,7 +599,7 @@ foreign players in all cases. It should also be noted that the data has
 been plotted on a log scale.
 
 *Note: The analysis described above is performed by the
-[`analysis_overpaid.r`](../src/analysis_overpaid.ipynb) script in the
+[`analysis_overpaid.r`](../src/analysis_overpaid.r) script in the
 [`src`](../src/) directory.*
 
 ## Conclusions
