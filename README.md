@@ -25,8 +25,8 @@ Our report on "Are Domestic Soccer Players Overpaid?" can be found [here](https:
 To replicate the analysis, clone this GitHub repository, install the [dependencies](#dependencies) listed below, and run the following commands at the command line/terminal from the root directory of this project:
 
 ```
-# Downloads, saves, and splits FIFA data - replace with your own local path
-RScript .\src\save_download.R --'/Users/huayuelu/Desktop/DSCI_522_G410/data/fifa_data_train.csv' --'/Users/huayuelu/Desktop/DSCI_522_G410/data/fifa_data_test.csv' --https://raw.githubusercontent.com/mglu123/live_dash_demo/master/data-2.csv
+# Downloads, saves, and splits FIFA data
+RScript .\src\save_download.R --'data/fifa_data_train.csv' --'data/fifa_data_test.csv' --https://raw.githubusercontent.com/mglu123/live_dash_demo/master/data-2.csv
 
 RScript .\src\save_download.R --data/fifa_data_train.csv --data/fifa_data_test.csv --https://raw.githubusercontent.com/mglu123/live_dash_demo/master/data-2.csv
 
