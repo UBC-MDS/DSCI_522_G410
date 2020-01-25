@@ -15,6 +15,7 @@ Options:
 library(tidyverse)
 library(docopt)
 library(broom)
+library(scales)
 
 opt <- docopt(doc)
 main <- function(input_file, out_dir_p, out_dir_r){
@@ -57,5 +58,26 @@ main <- function(input_file, out_dir_p, out_dir_r){
     theme(text = element_text(size = 18)) +
     theme(legend.position = "none")
   ggsave(paste0(out_dir_p, "/overpaid_plot.png"), width=14, height=5)
+  
+  ##############################################################################################
+  # Summary Table
+  ##############################################################################################
+  #Extract p-values from models
+  p_value <- tidy(lm_add)$p.value[2:6] %>% 
+    scientific(digits = 3)
+  p_value_df <- data.frame(p_value)
+  
+  # Table of means and p-values
+  df_means <- df %>% 
+    group_by(League, Domestic) %>% 
+    summarize(avg_oi = round(mean(Overpaid_Index), 2)) %>%
+    mutate(player = ifelse(Domestic == 1, 'Domestic Mean Overpaid Index', 'Foreign Mean Overpaid Index'))  %>% 
+    select(-Domestic) %>% 
+    spread(key = player, value=avg_oi) %>% 
+    mutate(Difference = `Domestic Mean Overpaid Index` - `Foreign Mean Overpaid Index`)
+  
+  # combine and save output
+  df_summary <- bind_cols(df_means, p_value_df)
+  write.csv(df_summary, paste0(out_dir_r, "/summary_model_table.csv"))
 }
 main(opt[["--input_file"]], opt[["--out_dir_p"]], opt[["--out_dir_r"]])
