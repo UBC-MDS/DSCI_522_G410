@@ -83,3 +83,6 @@ So, the `Club value` is a good indicator in the salary of the players.
 
 After all the analysis with plots and the correlation table, we decide to include some important features such as `Age`, `Club value`, `Overall` and some other features related with skill set of the players like `Potential`, `Ball controlling`, `Composure` in our model.
 
+*This report was prepared with R's [@R] `kableExtra` [@kableExtra] and `knitr` [@knitr] packages*
+
+# References

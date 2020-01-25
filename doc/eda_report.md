@@ -386,3 +386,36 @@ After all the analysis with plots and the correlation table, we decide
 to include some important features such as `Age`, `Club value`,
 `Overall` and some other features related with skill set of the players
 like `Potential`, `Ball controlling`, `Composure` in our model.
+
+*This report was prepared with R’s (R Core Team 2019) `kableExtra` (Zhu
+2019) and `knitr` (Xie 2014) packages*
+
+# References
+
+<div id="refs" class="references">
+
+<div id="ref-R">
+
+R Core Team. 2019. *R: A Language and Environment for Statistical
+Computing*. Vienna, Austria: R Foundation for Statistical Computing.
+<https://www.R-project.org/>.
+
+</div>
+
+<div id="ref-knitr">
+
+Xie, Yihui. 2014. “Knitr: A Comprehensive Tool for Reproducible Research
+in R.” In *Implementing Reproducible Computational Research*, edited by
+Victoria Stodden, Friedrich Leisch, and Roger D. Peng. Chapman;
+Hall/CRC. <http://www.crcpress.com/product/isbn/9781466561595>.
+
+</div>
+
+<div id="ref-kableExtra">
+
+Zhu, Hao. 2019. *KableExtra: Construct Complex Table with ’Kable’ and
+Pipe Syntax*. <https://CRAN.R-project.org/package=kableExtra>.
+
+</div>
+
+</div>
