@@ -77,21 +77,21 @@ RScript .\src\analysis_overpaid.r --input_file=data\cleaned\combined_league_data
 #### Scripts
 
 1. Download and save:
-    - [FIFA data](https://github.com/UBC-MDS/DSCI_522_G410/blob/master/save_download.R)
-    - [Club and league data](https://github.com/UBC-MDS/DSCI_522_G410/blob/master/download_and_save_league_data.R)
+    - [FIFA data](https://github.com/UBC-MDS/DSCI_522_G410/blob/master/src/save_download.R) (includes splitting the data into test and train sets for use in predictive models)
+    - [Club and league data](https://github.com/UBC-MDS/DSCI_522_G410/blob/master/src/download_and_save_league_data.R) (downloads and saves the data only)
 
 2. Cleaning, processing, and wrangling:
     - [Cleaning FIFA data](https://github.com/UBC-MDS/DSCI_522_G410/blob/master/src/clean.py)
     - [Cleaning league data](https://github.com/UBC-MDS/DSCI_522_G410/blob/master/src/download_and_save_league_data.R)
 
 3. EDA
-    - [FIFA data](https://github.com/UBC-MDS/DSCI_522_G410/blob/master/src/eda.py)
+    - [EDA script](https://github.com/UBC-MDS/DSCI_522_G410/blob/master/src/eda.py)
 
 4. Analysis
     - [Fitting Linear Models](https://github.com/UBC-MDS/DSCI_522_G410/blob/master/src/analysis_overpaid.r)
 
 5. Report
-    - [Report .Rmd file](https://github.com/UBC-MDS/DSCI_522_G410/blob/master/)
+    - [Report .Rmd file](https://github.com/UBC-MDS/DSCI_522_G410/blob/master/) on "Are Domestic Soccer Players Overpaid"
 
 #### Other Files
 
