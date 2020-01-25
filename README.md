@@ -26,7 +26,7 @@ Our report on "Are Domestic Soccer Players Overpaid?" can be found [here](https:
 
 The flow diagram below illustrates the overviews our analysis process and illustrates script orders and dependencies.
 
-![](../results/img/flow_chart.JPG)
+![](results/img/flow_chart.JPG)
 
 *Note: Steps 6 and 10 in the figure above relate to question 1 and are currently in progress / not ready for distribution*
 
