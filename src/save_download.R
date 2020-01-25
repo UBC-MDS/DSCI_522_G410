@@ -15,8 +15,8 @@ Usage: download_save.R <file_path_train> <file_path_test> <url>
 # '/Users/huayuelu/Desktop/DSCI_522_G410/data/fifa_data_test.csv' 
 # https://raw.githubusercontent.com/mglu123/live_dash_demo/master/data-2.csv
 
-library(feather)
-library(caret)
+#library(feather)
+#library(caret)
 library(tidyverse)
 library(testthat)
 library(docopt)
