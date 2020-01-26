@@ -56,7 +56,7 @@ kable(wage_df[4:9,], caption = "**Table 1. Top 5 Features Correlated with Player
 
 From Table 1, we see that the overall FIFA ranking is reasonably correlated with a player's wage, but not as highly as one might expect. We also see that it is likely that the richest clubs also have the highest paid players which is intuitive.  
 
-*Note: The EDA analysis is performed by the [`eda.py`](../src/eda.py) script in the [`src`](../src/) directory which also exports additional EDA figures not presented in this report.*
+*Note: The EDA analysis is performed by the [`eda.py`](../src/eda.py) script in the [`src`](../src/) directory. Additional details on the EDA process and findings are presented in the [EDA Report](https://github.com/UBC-MDS/DSCI_522_G410/blob/master/doc/eda_report.md) in the [`doc`](../doc/) directory*
 
 ### Assumptions
 
@@ -109,7 +109,7 @@ Figure 1 shows all the data graphically.
 
 ![](../results/img/overpaid_plot.png)
 
-Looking at the figure, this pattern that foreign players are more overvalued than domestic players becomes more clear. The black diamonds on each plot represent the mean overpaid index and the jittered points in the background represent all players. Even though there is scatter, we see that in most cases (with the exception of LaLiga in Spain), we have more outliers towards the lower end of the overpaid index for foreign players.  This means that if we were to ignore these points, we would see an even stronger pattern that foreign players are generally more overvalued than domestic players.  We also see that upper end of the overpaid index distribution (the most overpaid players) is higher for foreign players in all cases.  It should also be noted that the data has been plotted on a log scale. 
+Looking at the figure, this pattern that foreign players are more overvalued than domestic players becomes more clear. The black diamonds on each plot represent the mean overpaid index and the jittered points in the background represent all players. Even though there is scatter, we see that upper end of the overpaid index distribution (the most overpaid players) is higher for foreign players in all cases.  It should also be noted that the data has been plotted on a log scale, so the magnitude of the differences are actually greater than they may first appear.  Finally we see the biggest difference in Spain's LaLiga and England's Premier League, showing that my original hypothesis may have been extremely misguided. 
 
 *Note: The analysis described above is performed by the [`analysis_overpaid.r`](../src/analysis_overpaid.r) script in the [`src`](../src/) directory.*
 

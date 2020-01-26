@@ -65,7 +65,7 @@ player is).
 
 <caption>
 
-**Table 1. Top 10 Features Correlated with Weekly Wage (Ignoring
+**Table 1. Top 5 Features Correlated with Player Wage (Ignoring
 Wage/Salary Features)**
 
 </caption>
@@ -188,86 +188,6 @@ Composure
 
 </tr>
 
-<tr>
-
-<td style="text-align:left;">
-
-Special Skills
-
-</td>
-
-<td style="text-align:right;">
-
-0.4542754
-
-</td>
-
-</tr>
-
-<tr>
-
-<td style="text-align:left;">
-
-ShortPassing
-
-</td>
-
-<td style="text-align:right;">
-
-0.4338597
-
-</td>
-
-</tr>
-
-<tr>
-
-<td style="text-align:left;">
-
-BallControl
-
-</td>
-
-<td style="text-align:right;">
-
-0.4334185
-
-</td>
-
-</tr>
-
-<tr>
-
-<td style="text-align:left;">
-
-LongPassing
-
-</td>
-
-<td style="text-align:right;">
-
-0.3122152
-
-</td>
-
-</tr>
-
-<tr>
-
-<td style="text-align:left;">
-
-Vision
-
-</td>
-
-<td style="text-align:right;">
-
-0.3115009
-
-</td>
-
-</tr>
-
 </tbody>
 
 </table>
@@ -278,8 +198,10 @@ We also see that it is likely that the richest clubs also have the
 highest paid players which is intuitive.
 
 *Note: The EDA analysis is performed by the [`eda.py`](../src/eda.py)
-script in the [`src`](../src/) directory which also exports additional
-EDA figures not presented in this report.*
+script in the [`src`](../src/) directory. Additional details on the EDA
+process and findings are presented in the [EDA
+Report](https://github.com/UBC-MDS/DSCI_522_G410/blob/master/doc/eda_report.md)
+in the [`doc`](../doc/) directory*
 
 ### Assumptions
 
@@ -347,13 +269,13 @@ follows:
 
 Based on these results, we concluded that it was important to use our
 interaction model and look at the relationship for each league. The
-overall results are summarized in Table 1 below.
+overall results are summarized in Table 2 below.
 
 <table>
 
 <caption>
 
-**Table 1. Results of Comparing the Relationship of Player Origin to
+**Table 2. Results of Comparing the Relationship of Player Origin to
 Overpaid Index**
 
 </caption>
@@ -572,7 +494,7 @@ Serie A
 
 </table>
 
-From Table 1 we see that there is a difference in the mean overpaid
+From Table 2 we see that there is a difference in the mean overpaid
 index between domestic and foreign players, however it is not what we
 expected. Foreign players have a higher mean overpaid index than
 domestic players. Looking at the p-values, this relationship is
@@ -589,14 +511,13 @@ Looking at the figure, this pattern that foreign players are more
 overvalued than domestic players becomes more clear. The black diamonds
 on each plot represent the mean overpaid index and the jittered points
 in the background represent all players. Even though there is scatter,
-we see that in most cases (with the exception of LaLiga in Spain), we
-have more outliers towards the lower end of the overpaid index for
-foreign players. This means that if we were to ignore these points, we
-would see an even stronger pattern that foreign players are generally
-more overvalued than domestic players. We also see that upper end of the
-overpaid index distribution (the most overpaid players) is higher for
-foreign players in all cases. It should also be noted that the data has
-been plotted on a log scale.
+we see that upper end of the overpaid index distribution (the most
+overpaid players) is higher for foreign players in all cases. It should
+also be noted that the data has been plotted on a log scale, so the
+magnitude of the differences are actually greater than they may first
+appear. Finally we see the biggest difference in Spain’s LaLiga and
+England’s Premier League, showing that my original hypothesis may have
+been extremely misguided.
 
 *Note: The analysis described above is performed by the
 [`analysis_overpaid.r`](../src/analysis_overpaid.r) script in the
