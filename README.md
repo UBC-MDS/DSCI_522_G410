@@ -99,7 +99,7 @@ RScript .\src\analysis_overpaid.r --input_file=data\cleaned\combined_league_data
     - [Fitting Linear Models](https://github.com/UBC-MDS/DSCI_522_G410/blob/master/src/analysis_overpaid.r)
 
 5. Report
-    - [Report .Rmd file](https://github.com/UBC-MDS/DSCI_522_G410/blob/master/) on "Are Domestic Soccer Players Overpaid"
+    - [Report .md file](https://github.com/UBC-MDS/DSCI_522_G410/blob/master/doc/report_fifa_overpaid.md) on "Are Domestic Soccer Players Overpaid"
     - [EDA Report](https://github.com/UBC-MDS/DSCI_522_G410/blob/master/doc/eda_report.md)
 
 #### Other Files
