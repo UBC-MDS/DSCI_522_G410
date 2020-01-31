@@ -1,16 +1,6 @@
 Are Domestic Soccer Players Overpaid?
 ================
 
-  - [Introduction](#introduction)
-  - [Methodology](#methodology)
-      - [Data Sources](#data-sources)
-      - [Exploratory Data Analysis](#exploratory-data-analysis)
-      - [Assumptions](#assumptions)
-      - [Wrangling and Cleaning](#wrangling-and-cleaning)
-      - [Analysis and Results](#analysis-and-results)
-  - [Conclusions](#conclusions)
-  - [References](#references)
-
 ## Introduction
 
 Most soccer leagues (and in fact many sports other sports leagues around
@@ -262,10 +252,10 @@ follows:
 
   - *Comparing additive model to baseline*: adding the extra `League`
     term in the additive model improved the baseline model at the 0.05
-    significance level (the p-value was 1.53e-29).
+    significance level (the p-value was 1.82e-36).
   - *Comparing model with interaction to additive*: adding the
     interaction term significantly improved the additive model at the
-    0.05 significance level (the p-value was 1.82e-05).
+    0.05 significance level (the p-value was 1.1e-06).
 
 Based on these results, we concluded that it was important to use our
 interaction model and look at the relationship for each league. The
@@ -330,25 +320,25 @@ Bundesliga
 
 <td style="text-align:left;">
 
-14.8
+14.1
 
 </td>
 
 <td style="text-align:left;">
 
-19.9
+18.6
 
 </td>
 
 <td style="text-align:left;">
 
-\-5.1
+\-4.49
 
 </td>
 
 <td style="text-align:left;">
 
-2.02e-25
+2.16e-25
 
 </td>
 
@@ -364,25 +354,25 @@ LaLiga
 
 <td style="text-align:left;">
 
-16.1
+16
 
 </td>
 
 <td style="text-align:left;">
 
-36.2
+35
 
 </td>
 
 <td style="text-align:left;">
 
-\-20.1
+\-19
 
 </td>
 
 <td style="text-align:left;">
 
-8.15e-05
+5.1e-06
 
 </td>
 
@@ -398,25 +388,25 @@ Ligue 1
 
 <td style="text-align:left;">
 
-10.8
+11
 
 </td>
 
 <td style="text-align:left;">
 
-17.5
+17.4
 
 </td>
 
 <td style="text-align:left;">
 
-\-6.73
+\-6.46
 
 </td>
 
 <td style="text-align:left;">
 
-0.119
+0.229
 
 </td>
 
@@ -450,7 +440,7 @@ Premier League
 
 <td style="text-align:left;">
 
-8.14e-19
+2.72e-25
 
 </td>
 
@@ -466,25 +456,25 @@ Serie A
 
 <td style="text-align:left;">
 
-18.1
+15.8
 
 </td>
 
 <td style="text-align:left;">
 
-27.8
+23.7
 
 </td>
 
 <td style="text-align:left;">
 
-\-9.74
+\-7.86
 
 </td>
 
 <td style="text-align:left;">
 
-0.00434
+0.0828
 
 </td>
 
