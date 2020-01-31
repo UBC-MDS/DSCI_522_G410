@@ -11,14 +11,29 @@ Options:
 --out_dir_p=<out_dir_p>     Path to directory where the plots should be written
 --out_dir_r=<out_dir_r>     Path to directory where the results should be written
 " -> doc
-
+#example to run: Rscript src/analysis_overpaid.r --input_file='data/cleaned/combined_league_data.csv' --out_dir_p='results/img' --out_dir_r='results'
 library(tidyverse)
 library(docopt)
 library(broom)
 library(scales)
+library(tools)
+library(testthat)
 
 opt <- docopt(doc)
 main <- function(input_file, out_dir_p, out_dir_r){
+  
+  #Testing input file format
+  test_that("Error!! input_file must have .csv extension format.",{
+    expect_equal(file_ext(input_file), "csv")})
+  
+  #Testing out_dir_p file directory format
+  test_that("Warning!! out_dir_p directory address cannot contain a file extension. Please check.",{
+    expect_equal(file_ext(out_dir_p), "")}) 
+  
+  #Testing out_dir_r file directory format
+  test_that("Warning!! out_dir_r directory address cannot contain a file extension. Please check.",{
+    expect_equal(file_ext(out_dir_r), "")}) 
+  
   # Read in data
   df <- read_csv(input_file)
   ##############################################################################################
@@ -59,6 +74,7 @@ main <- function(input_file, out_dir_p, out_dir_r){
     theme(legend.position = "none")
   ggsave(paste0(out_dir_p, "/overpaid_plot.png"), width=14, height=5)
   
+
   ##############################################################################################
   # Summary Table
   ##############################################################################################
