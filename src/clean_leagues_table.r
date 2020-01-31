@@ -6,7 +6,7 @@
 originally sourced from https://www.ea.com/games/fifa/news/fifa-19-leagues-and-teams).
 Writes the training and test data to separate feather files.
 
-Usage: src/clean_leagues_table.r --league_raw=<league_raw> --fifa_test=<fifa_test> --fifa_train=<fifa_train> --out_dir=<out_dir>
+Usage: Rscript src/clean_leagues_table.r --league_raw=<league_raw> --fifa_test=<fifa_test> --fifa_train=<fifa_train> --out_dir=<out_dir>
 
 Options:
 --league_raw=<league_raw>     Path (including filename) to raw league data (csv file)
@@ -73,4 +73,11 @@ main <- function(league_raw, fifa_test, fifa_train, out_dir){
     write.csv(combined_df, paste0(out_dir, "combined_league_data.csv"))
 }
 
+test_main <- function(url) {
+  test_that("test url is existed or not", {
+    expect_equal(length(combined_df, 11))
+  })
+}
+
 main(opt[["--league_raw"]], opt[["--fifa_test"]], opt[["--fifa_train"]], opt[["--out_dir"]])
+
