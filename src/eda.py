@@ -17,10 +17,11 @@ import pandas as pd
 import altair as alt
 import matplotlib.pyplot as plt
 import seaborn as sns
-from selenium import webdriver
 from pathlib import Path
 from docopt import docopt
 from pylab import savefig
+from selenium import webdriver
+#from webdriver_manager.chrome import ChromeDriverManager
 
 from altair import pipe, limit_rows, to_values
 

@@ -1,5 +1,5 @@
 # Driver script
-# Holly Williams, Jan 2019
+# Holly Williams, Huayue Lu Jan 2019
 #
 # This driver script downloads data on FIFA soccer players and 
 # international clubs, cleans the data, and then performs 
@@ -48,8 +48,9 @@ doc/report_fifa_overpaid.md : doc/report_fifa_overpaid.Rmd doc/fifa_refs.bib run
 
 # Clean up intermediate and results files
 clean : 
+	rm -f data/cleaned/*.csv
 	rm -f results/*.png
 	rm -f results/images/*.png
 	rm -f results/img/*.png
 	rm -f results/img/*.JPG
-	rm -f doc/eda_report.md report_fifa_overpaid.md
+	rm -f doc/eda_report.md doc/report_fifa_overpaid.md
