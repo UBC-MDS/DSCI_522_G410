@@ -32,7 +32,7 @@ main <- function(url, out_dir){
 }
 
 
-
+# test that url exists
 test_main <- function(url) {
   test_that("test that url exists", {
     expect_true(url.exists(url))
