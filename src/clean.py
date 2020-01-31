@@ -53,6 +53,11 @@ def main(file_path, out_file_path):
     df = df.drop(columns = ['Work.Rate'])
     df = df.loc[df['Position'] != 'GK']  
     df.to_csv(path_or_buf = out_file_path)
+    test = pd.DataFrame([1,2])    
+    assert type(df) == type(test) #######test if df is in proper file type
+    assert df.shape[1] == 53      #######test if df is in proper shape
 
 if __name__ == "__main__":
-    main(opt["--file_path"], opt["--out_file_path"])                      
+    main(opt["--file_path"], opt["--out_file_path"])
+
+
