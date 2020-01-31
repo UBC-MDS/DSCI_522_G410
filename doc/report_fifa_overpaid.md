@@ -92,7 +92,7 @@ Club\_Value
 
 <td style="text-align:right;">
 
-0.7277567
+0.7111105
 
 </td>
 
@@ -108,7 +108,7 @@ International.Reputation
 
 <td style="text-align:right;">
 
-0.6701575
+0.6776594
 
 </td>
 
@@ -124,7 +124,7 @@ Overall FIFA Ranking
 
 <td style="text-align:right;">
 
-0.6630327
+0.5856002
 
 </td>
 
@@ -140,7 +140,7 @@ Reactions
 
 <td style="text-align:right;">
 
-0.5352335
+0.5134063
 
 </td>
 
@@ -156,7 +156,7 @@ Potential
 
 <td style="text-align:right;">
 
-0.5075673
+0.4935512
 
 </td>
 
@@ -172,7 +172,7 @@ Composure
 
 <td style="text-align:right;">
 
-0.4726412
+0.4663572
 
 </td>
 
