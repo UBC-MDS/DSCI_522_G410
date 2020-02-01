@@ -50,7 +50,8 @@ doc/eda_report.md : doc/eda_report.Rmd doc/fifa_refs.bib run_models
 doc/report_fifa_overpaid.md : doc/report_fifa_overpaid.Rmd doc/fifa_refs.bib run_models
 	Rscript -e "rmarkdown::render('doc/report_fifa_overpaid.Rmd')"
 
-# Clean up intermediate and results files except from reports
+# Clean up intermediate and results files
 clean : 
 	rm -rf data
 	rm -rf results
+	rm -f doc/eda_report.md doc/report_fifa_overpaid.md doc/report_fifa_overpaid.html doc/eda_report.html
