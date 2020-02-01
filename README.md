@@ -26,36 +26,17 @@ Our report on "Are Domestic Soccer Players Overpaid?" can be found [here](https:
 
 The flow diagram below illustrates the overviews our analysis process and illustrates script orders and dependencies.
 
-![](results/img/flow_chart.JPG)
+![](img/flow_chart.JPG)
 
 *Note: Steps 6 and 10 in the figure above relate to question 1 and are currently in progress / not ready for distribution*
 
 To replicate the analysis, clone this GitHub repository, install the [dependencies](#dependencies) listed below, and run the following commands at the command line/terminal from the root directory of this project:
 
-```
-# 1. Downloads, saves, and splits FIFA data: note absolute paths should be replaced with user-specific path
-RScript .\src\save_download.R --'/Users/huayuelu/Desktop/DSCI_522_G410/data/fifa_data_train.csv' --'/Users/huayuelu/Desktop/DSCI_522_G410/data/fifa_data_test.csv'  --https://raw.githubusercontent.com/mglu123/live_dash_demo/master/data-2.csv
+```make all```
 
-# 2. Downloads and saves league and club data
-RScript .\src\download_and_save_league_data.r --url=https://raw.githubusercontent.com/hwilliams10/fifa_data/master/clubs_and_leagues.csv --out_dir=data\raw\
+To reset the repo to a clean state, with no intermediate or results files, run the following command at the command line/terminal from the root directory of this project:
 
-# 3. Cleans FIFA training data
-python .\src\clean.py --file_path="data/raw/fifa_data_train.csv" --out_file_path="data/cleaned/clean_train.csv"
-
-# 4. Cleans FIFA test data
-python .\src\clean.py --file_path="data/raw/fifa_data_test.csv" --out_file_path="data/cleaned/clean_test.csv"
-
-# 5. Cleans and wrangles league and club data
-RScript .\src\clean_leagues_table.r --league_raw=data\raw\clubs_and_leagues.csv --fifa_test=data\cleaned\clean_test.csv --fifa_train=data\cleaned\clean_train.csv --out_dir=data\cleaned\
-
-# 6. Performs prediction analysis -- IN PROGRESS
-
-# 7. Performs EDA on FIFA data and exports figures and tables
-python .\src\eda.py --input-file-path="data/cleaned/clean_train.csv" --output-folder-path="results"
-
-# 8. Fits linear models and exports results
-RScript .\src\analysis_overpaid.r --input_file=data\cleaned\combined_league_data.csv --out_dir_p=results\img --out_dir_r=results
-```
+```make clean```
 
 ## Dependencies
 
@@ -78,6 +59,12 @@ RScript .\src\analysis_overpaid.r --input_file=data\cleaned\combined_league_data
   - docopt==0.6.1
   - testthat==2.3.1
   - RCurl==1.98-1.1
+
+- GNU make 4.2.1
+
+- ChromeDriver 79.0.3945.36
+
+*Note: ChromeDriver is required for saving Altair plots that are produced in our EDA analysis and then rendered in reports. If you are having issues producing Altair plots or installing ChromeDriver, please consult these links for help: [saving Altair plots](https://altair-viz.github.io/user_guide/saving_charts.html), [installing ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/)*
 
 
 ## Additional Links
