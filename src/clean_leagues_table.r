@@ -17,6 +17,7 @@ Options:
 
 library(tidyverse)
 library(docopt)
+library(testthat)
 
 opt <- docopt(doc)
 main <- function(league_raw, fifa_test, fifa_train, out_dir){
@@ -71,6 +72,10 @@ main <- function(league_raw, fifa_test, fifa_train, out_dir){
              'Overpaid_Index' = (`Salary (M)` / Overall * 1000))
     # save the data
     write.csv(combined_df, paste0(out_dir, "combined_league_data.csv"))
+    
+    test_that("if out put data has right shape", {
+      expect_equal(length(combined_df), 11)
+    })
 }
 
 main(opt[["--league_raw"]], opt[["--fifa_test"]], opt[["--fifa_train"]], opt[["--out_dir"]])
