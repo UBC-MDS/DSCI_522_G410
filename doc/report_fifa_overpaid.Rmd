@@ -107,7 +107,7 @@ From Table 2 we see that there is a difference in the mean overpaid index betwee
 
 Figure 1 shows all the data graphically.
 
-![](../results/img/overpaid_plot.png)
+![](../results/images/overpaid_plot.png)
 
 Looking at the figure, this pattern that foreign players are more overvalued than domestic players becomes more clear. The black diamonds on each plot represent the mean overpaid index and the jittered points in the background represent all players. Even though there is scatter, we see that upper end of the overpaid index distribution (the most overpaid players) is higher for foreign players in all cases.  It should also be noted that the data has been plotted on a log scale, so the magnitude of the differences are actually greater than they may first appear.  Finally we see the biggest difference in Spain's LaLiga and England's Premier League, showing that my original hypothesis may have been extremely misguided. 
 
