@@ -77,7 +77,7 @@ To reset the repo to a clean state, with no intermediate or results files, run t
 
 2. Cleaning, processing, and wrangling:
     - [Cleaning FIFA data](https://github.com/UBC-MDS/DSCI_522_G410/blob/master/src/clean.py)
-    - [Cleaning league data](https://github.com/UBC-MDS/DSCI_522_G410/blob/master/src/download_and_save_league_data.R)
+    - [Cleaning league data](https://github.com/UBC-MDS/DSCI_522_G410/blob/master/src/clean_leagues_table.r)
 
 3. EDA
     - [EDA script](https://github.com/UBC-MDS/DSCI_522_G410/blob/master/src/eda.py)
