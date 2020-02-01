@@ -111,6 +111,8 @@ Figure 1 shows all the data graphically.
 
 Looking at the figure, this pattern that foreign players are more overvalued than domestic players becomes more clear. The black diamonds on each plot represent the mean overpaid index and the jittered points in the background represent all players. Even though there is scatter, we see that upper end of the overpaid index distribution (the most overpaid players) is higher for foreign players in all cases.  It should also be noted that the data has been plotted on a log scale, so the magnitude of the differences are actually greater than they may first appear.  Finally we see the biggest difference in Spain's LaLiga and England's Premier League, showing that my original hypothesis may have been extremely misguided. 
 
+One possible explanation could be that a player's value is determined by more than just their performance on the field. Some players are more marketable than others and clubs could be spending more on foreign players with large fanbases simply to sell more merchandise or attract more fans. Another explanation could be that since the style of play varies across leagues, some players may play well in their home country and get signed by a foreign club at a large wage. Then, when they move to a new league, their performance may drop because they are not accustomed to that league's style of play. These theories are purely speculative but show that there is much more to consider.
+
 *Note: The analysis described above is performed by the [`analysis_overpaid.r`](../src/analysis_overpaid.r) script in the [`src`](../src/) directory.*
 
 ## Conclusions
@@ -118,6 +120,10 @@ Looking at the figure, this pattern that foreign players are more overvalued tha
 We set out to test the hypothesis that the mean overpaid index is greater for domestic players than foreign players in the top 5 soccer leagues.  This was based on the theory that league homegrown quota rules result in domestic players being overvalued. We built linear models to test whether there was a significant relationship between a player's origin and their overpaid index and found that the relationship depends on the league the player is in.  Our final results showed that there was a significant relationship between mean overpaid index and player origin for 4 out of the 5 leagues.  However, the finding was that it is in fact foreign players who are more overvalued. 
 
 Not only was our original hypothesis disproven; but instead we found that the opposite was true!
+
+### Next Steps
+
+We showed that domestic players are not overvalued compared to foreign players, so a logical next step would involve looking at the key variables that influence a player's wage. This is what we plan to do as the next part of our analysis if time permits.
 
 *This report was prepared with R's [@R] `kableExtra` [@kableExtra] and `knitr` [@knitr] packages*
 
