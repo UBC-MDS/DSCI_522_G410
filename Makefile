@@ -39,7 +39,7 @@ clean_club_data : src/clean_leagues_table.r clean_fifa_test clean_fifa_train lea
 eda_fifa : src/eda.py clean_fifa_train
 	python ./src/eda.py --input-file-path="data/cleaned/clean_train.csv" --output-folder-path="results"
 
-# 8. Fits linear models and exports results
+# Fits linear models and exports results
 run_models : src/analysis_overpaid.r eda_fifa clean_fifa_test  clean_club_data
 	Rscript ./src/analysis_overpaid.r --input_file=data/cleaned/combined_league_data.csv --out_dir_p=results/images --out_dir_r=results
 
