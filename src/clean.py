@@ -1,9 +1,12 @@
 # -*- coding: UTF-8 -*-
-"""This script clean the input data set by droping useless 
-column and transforming strings(money symbol, lbs inches, etc)
-Add BMI column, split work rate column with new columns named as
-Work.Rate.Former and Work.Rate.Later.
-Drop rows with position GK
+
+# Author: Merve Sahin, Huayue Lu January 2019
+
+"""This script cleans the input data set by droping irrelevant 
+columns and transforming strings(money symbol, lbs inches, goalkeeping-specific
+columns, etc).
+
+It also adds a BMI column calculated from height and weight.
 
 Usage: clean.py --file_path=<file_path> --out_file_path=<out_file_path>
 
