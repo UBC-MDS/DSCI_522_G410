@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 """This script clean the input data set by droping useless 
 column and transforming strings(money symbol, lbs inches, etc)
 Add BMI column, split work rate column with new columns named as
