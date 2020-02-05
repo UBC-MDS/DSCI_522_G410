@@ -44,13 +44,15 @@ Before starting our analysis, we did some exploration on the range of wages usin
 
 ```{r}
 # print top 10 features ignoring first three which are other types of wage
+#MAKE A COMMENT
 wage_df <- wage_corr_df %>% 
   rename("Feature" = X1, 
          "Correlation Coefficient" = "Wage") %>% 
   mutate(Feature = case_when(Feature == 'Wage' ~ "Weekly Wage ($1000's)",
                              Feature == 'Overall' ~ "Overall FIFA Ranking",
                              Feature == 'Special' ~ "Special Skills",
-                             TRUE ~ Feature))
+                             TRUE ~ Feature))%>% 
+  mutate_if(is.numeric, ~ as.character(signif(., 2)))
 kable(wage_df[4:9,], caption = "**Table 1. Top 5 Features Correlated with Player Wage (Ignoring Wage/Salary Features)**")
 ```
 
