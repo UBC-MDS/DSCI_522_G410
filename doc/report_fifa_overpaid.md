@@ -1,6 +1,17 @@
 Are Domestic Soccer Players Overpaid?
 ================
 
+  - [Introduction](#introduction)
+  - [Methodology](#methodology)
+      - [Data Sources](#data-sources)
+      - [Exploratory Data Analysis](#exploratory-data-analysis)
+      - [Assumptions](#assumptions)
+      - [Wrangling and Cleaning](#wrangling-and-cleaning)
+      - [Analysis and Results](#analysis-and-results)
+  - [Conclusions](#conclusions)
+      - [Next Steps](#next-steps)
+  - [References](#references)
+
 ## Introduction
 
 Most soccer leagues (and in fact many sports other sports leagues around
@@ -495,7 +506,7 @@ at the 0.05 level.
 
 Figure 1 shows all the data graphically.
 
-![](../results/img/overpaid_plot.png)
+![](../results/images/overpaid_plot.png)
 
 Looking at the figure, this pattern that foreign players are more
 overvalued than domestic players becomes more clear. The black diamonds
@@ -508,6 +519,17 @@ magnitude of the differences are actually greater than they may first
 appear. Finally we see the biggest difference in Spain’s LaLiga and
 England’s Premier League, showing that my original hypothesis may have
 been extremely misguided.
+
+One possible explanation could be that a player’s value is determined by
+more than just their performance on the field. Some players are more
+marketable than others and clubs could be spending more on foreign
+players with large fanbases simply to sell more merchandise or attract
+more fans. Another explanation could be that since the style of play
+varies across leagues, some players may play well in their home country
+and get signed by a foreign club at a large wage. Then, when they move
+to a new league, their performance may drop because they are not
+accustomed to that league’s style of play. These theories are purely
+speculative but show that there is much more to consider.
 
 *Note: The analysis described above is performed by the
 [`analysis_overpaid.r`](../src/analysis_overpaid.r) script in the
@@ -528,6 +550,13 @@ foreign players who are more overvalued.
 
 Not only was our original hypothesis disproven; but instead we found
 that the opposite was true\!
+
+### Next Steps
+
+We showed that domestic players are not overvalued compared to foreign
+players, so a logical next step would involve looking at the key
+variables that influence a player’s wage. This is what we plan to do as
+the next part of our analysis if time permits.
 
 *This report was prepared with R’s (R Core Team 2019) `kableExtra` (Zhu
 2019) and `knitr` (Xie 2014) packages*

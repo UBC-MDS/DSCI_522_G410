@@ -194,9 +194,10 @@ def generate_wage_distribution_in_the_richest_clubs(data_frame, output_folder, f
     fig, ax = plt.subplots()
     fig.set_size_inches(20, 10)
     ax = sns.boxplot(x="Club", y="Wage", data=df_club)
+    ax.set_title(label='Distribution of wage in famous clubs', fontsize=40)
     ax.set_xlabel("Club",fontsize=30)
-    ax.set_ylabel("Weekly Wage ($1000's)",fontsize=20)
-    #ax.set_title(label='Distribution of wage in the richest clubs', fontsize=20)
+    ax.set_ylabel("Weekly Wage ($1000's)",fontsize=30)
+    ax.tick_params(labelsize=20)
 
     full_output_path = os.path.join(output_folder, IMAGE_FOLDER, file_name + '.png')
 
@@ -233,8 +234,11 @@ def generate_wage_distribution_in_random_clubs(data_frame, output_folder, file_n
     fig, ax = plt.subplots()
     fig.set_size_inches(20, 10)
     ax = sns.boxplot(x="Club", y="Wage", data=df_club)
-    ax.set_title(label='Distribution of wage in  clubs', fontsize=20)
-
+    ax.set_title(label='Distribution of wage in random clubs', fontsize=40)
+    ax.set_xlabel("Club",fontsize=30)
+    ax.set_ylabel("Weekly Wage ($1000's)",fontsize=30)
+    ax.tick_params(labelsize=20)
+    
     full_output_path = os.path.join(output_folder, IMAGE_FOLDER, file_name + '.png')
 
     figure = ax.get_figure()
