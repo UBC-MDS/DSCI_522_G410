@@ -1,6 +1,6 @@
 
-# Docker file for 
-# DSCI_G410, Feb, 2020
+# Docker file for data_analysis_pipeline_eg
+# Tiffany Timbers, Jan, 2020
 
 # use rocker/tidyverse as the base image and
 FROM rocker/tidyverse
