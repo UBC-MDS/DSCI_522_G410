@@ -81,7 +81,7 @@ Feature
 
 </th>
 
-<th style="text-align:right;">
+<th style="text-align:left;">
 
 Correlation Coefficient
 
@@ -101,9 +101,9 @@ Club\_Value
 
 </td>
 
-<td style="text-align:right;">
+<td style="text-align:left;">
 
-0.7111105
+0.71
 
 </td>
 
@@ -117,9 +117,9 @@ International.Reputation
 
 </td>
 
-<td style="text-align:right;">
+<td style="text-align:left;">
 
-0.6776594
+0.68
 
 </td>
 
@@ -133,9 +133,9 @@ Overall FIFA Ranking
 
 </td>
 
-<td style="text-align:right;">
+<td style="text-align:left;">
 
-0.5856002
+0.59
 
 </td>
 
@@ -149,9 +149,9 @@ Reactions
 
 </td>
 
-<td style="text-align:right;">
+<td style="text-align:left;">
 
-0.5134063
+0.51
 
 </td>
 
@@ -165,9 +165,9 @@ Potential
 
 </td>
 
-<td style="text-align:right;">
+<td style="text-align:left;">
 
-0.4935512
+0.49
 
 </td>
 
@@ -181,9 +181,9 @@ Composure
 
 </td>
 
-<td style="text-align:right;">
+<td style="text-align:left;">
 
-0.4663572
+0.47
 
 </td>
 
@@ -508,17 +508,21 @@ Figure 1 shows all the data graphically.
 
 ![](../results/images/overpaid_plot.png)
 
-Looking at the figure, this pattern that foreign players are more
+The top figure shows all the data, and the bottom figure shows the data
+with the y-axis zoomed in to only show players with overpaid indices
+between 0 and 100. Looking at the top figure, we can see that leagues
+like La Ligua in Spain have very long tails, whereas Serie A in Italy
+has virtually no tail. When we use the bottom figure to zoom into the
+majority of the data, the pattern that foreign players are more
 overvalued than domestic players becomes more clear. The black diamonds
-on each plot represent the mean overpaid index and the jittered points
-in the background represent all players. Even though there is scatter,
-we see that upper end of the overpaid index distribution (the most
-overpaid players) is higher for foreign players in all cases. It should
-also be noted that the data has been plotted on a log scale, so the
-magnitude of the differences are actually greater than they may first
-appear. Finally we see the biggest difference in Spain’s LaLiga and
-England’s Premier League, showing that my original hypothesis may have
-been extremely misguided.
+on each plot represent the mean overpaid index and the funny-looking
+shapes are violin plots showing the distribution of all players (with
+fatter shapes indicating higher densities of players). Even though the
+distributions vary by league, we see that upper end of the overpaid
+index distribution (the most overpaid players) is higher for foreign
+players in all cases. Finally we see the biggest difference in Spain’s
+LaLiga and England’s Premier League, showing that my original hypothesis
+may have been extremely misguided.
 
 One possible explanation could be that a player’s value is determined by
 more than just their performance on the field. Some players are more
@@ -528,8 +532,12 @@ more fans. Another explanation could be that since the style of play
 varies across leagues, some players may play well in their home country
 and get signed by a foreign club at a large wage. Then, when they move
 to a new league, their performance may drop because they are not
-accustomed to that league’s style of play. These theories are purely
-speculative but show that there is much more to consider.
+accustomed to that league’s style of play. Finally, clubs in these
+leagues all have youth teams where they develop young players that may
+eventually break into the first team. These players may be “undervalued”
+in their first few years before generating interest from other clubs.
+These theories are purely speculative but show that there is much more
+to consider.
 
 *Note: The analysis described above is performed by the
 [`analysis_overpaid.r`](../src/analysis_overpaid.r) script in the
