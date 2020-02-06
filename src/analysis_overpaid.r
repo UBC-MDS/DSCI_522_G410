@@ -18,6 +18,7 @@ library(broom)
 library(scales)
 library(tools)
 library(testthat)
+library(cowplot)
 
 opt <- docopt(doc)
 main <- function(input_file, out_dir_p, out_dir_r){
@@ -58,21 +59,56 @@ main <- function(input_file, out_dir_p, out_dir_r){
   ##############################################################################################
   # Plots
   ##############################################################################################
-  # Make combined box + jitter plot
-  overpaid_plot <- ggplot(df, aes(x = Domestic, y = Overpaid_Index, group = Domestic, colour = factor(Domestic))) +
-    geom_boxplot() +
-    geom_jitter(width = 0.15, alpha = 0.2, size = 1.5) +
+  # Make violin plot zoomed into area of interest
+  ymax=100 # this is the highest overpaid index we want to show
+  zoomed_plot <- ggplot(df, aes(x = Domestic, y = Overpaid_Index, group = Domestic, colour = factor(Domestic))) +
+    geom_violin() +
     stat_summary(fun.y = mean, colour = "black", geom = "point",
                  shape = 18, size = 6) +
-    labs(x = "Player", y = "Overpaid Index - log(10) scale\n(Salary / FIFA point rating x 1000)") + 
+    labs(x = "Player", y = "Overpaid Index") + 
     scale_x_continuous(breaks = c(0, 1),
                        labels = c("Foreign", "Domestic")) +
     facet_wrap(~League, ncol=5) +
-    scale_y_continuous(trans='log10') +
     theme_bw() +
     theme(text = element_text(size = 18)) +
-    theme(legend.position = "none")
-  ggsave(paste0(out_dir_p, "/overpaid_plot.png"), width=14, height=5)
+    theme(legend.position = "none") +
+    # use cartesian coordinates instead of xlim so all data is included
+    coord_cartesian(xlim = NULL, ylim = c(0, ymax), expand = TRUE,
+                    default = FALSE, clip = "on")
+  #create a rectangle to show where we are zooming in and plot on whole data
+  rect <- data.frame(xmin=-Inf, xmax=Inf, ymin=0, ymax=ymax)
+  overpaid_plot <- zoomed_plot +
+    geom_rect(data=rect, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax),
+              color="grey20",
+              alpha=0.15,
+              inherit.aes = FALSE, linetype = 2) +
+    coord_cartesian(xlim = NULL, ylim = NULL, expand = TRUE,
+                    default = FALSE, clip = "on")
+  # combine two plots together in cowplot
+  combined_plot = plot_grid(overpaid_plot, zoomed_plot, 
+                            labels = c('A. FULL PLOT', 'B. ZOOMED IN Y-AXIS'), 
+                            label_size = 12, ncol=1, 
+                            rel_heights = c(1, 2),
+                            label_x = 0, label_y = 0,
+                            hjust = 0, vjust = -0.5)
+  
+  # add title to cowplot
+  title <- ggdraw() + 
+    draw_label(
+      "Figure 1: Overpaid Index Distributions by Player Origin (Domestic or Foreign)",
+      fontface = 'bold',
+      x = 0,
+      hjust = 0
+    ) +
+    theme(
+      plot.margin = margin(0, 0, 0, 7)
+    )
+  combined_with_title <- plot_grid(
+    title, combined_plot,
+    ncol = 1,
+    rel_heights = c(0.1, 1)
+  )
+  ggsave(paste0(out_dir_p, "/overpaid_plot.png"), width=14, height=8)
   
 
   ##############################################################################################
