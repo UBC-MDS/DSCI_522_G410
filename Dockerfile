@@ -31,12 +31,12 @@ RUN wget -q "https://chromedriver.storage.googleapis.com/79.0.3945.36/chromedriv
     && rm /tmp/chromedriver.zip && chown root:root /usr/bin/chromedriver && chmod +x /usr/bin/chromedriver
 
 # Install extra R packages
-RUN R -e "install.packages('broom', repos=‘https://cloud.r-project.org/’)"
-RUN R -e "install.packages('scales', repos=‘https://cloud.r-project.org/’)"
-RUN R -e "install.packages('testthat', repos=‘https://cloud.r-project.org/’)"
-RUN R -e "install.packages(‘tools’, repos=‘https://cloud.r-project.org/’)"
-RUN R -e "install.packages(‘cowplot’, repos=‘https://cloud.r-project.org/’)"
-RUN R -e "install.packages(‘RCurl’, repos=‘https://cloud.r-project.org/’)"
+RUN R -e "install.packages('broom', repos='https://cloud.r-project.org/')"
+RUN R -e "install.packages('scales', repos='https://cloud.r-project.org/')"
+RUN R -e "install.packages('testthat', repos='https://cloud.r-project.org/')"
+RUN R -e "install.packages('tools', repos='https://cloud.r-project.org/')"
+RUN R -e "install.packages('cowplot', repos='https://cloud.r-project.org/')"
+RUN R -e "install.packages('RCurl', repos='https://cloud.r-project.org/')"
 
 # Install altair, cowplot, selenium and docopt
 RUN conda install -y -c conda-forge altair && conda install -y selenium && \
