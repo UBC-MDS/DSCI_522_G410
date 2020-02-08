@@ -22,21 +22,52 @@ Most soccer leagues have rules limiting the number of foreign players that any t
 
 Our report on "Are Domestic Soccer Players Overpaid?" can be found [here](https://github.com/UBC-MDS/DSCI_522_G410/blob/master/doc/report_fifa_overpaid.md)
 
-## Usage
+## Diagrams
 
-The flow diagram below illustrates the overviews our analysis process and illustrates script orders and dependencies.
+The dependency diagram below illustrates script orders and dependencies for our Makefile and was created using `makefile2graph`:
+
+![](img/makefile.png)
+
+A more "artistic" version is presented in the illustration below:
 
 ![](img/flow_chart.JPG)
 
 *Note: Steps 6 and 10 in the figure above relate to question 1 and are currently in progress / not ready for distribution*
 
-To replicate the analysis, clone this GitHub repository, install the [dependencies](#dependencies) listed below, and run the following commands at the command line/terminal from the root directory of this project:
+## Usage
 
-```make all```
+There are two ways to reproduce our analysis:
+
+### 1. Using Docker
+
+note - the instructions in this section also depends on running this in a unix shell (e.g., terminal or Git Bash)
+To replicate the analysis, install [Docker](https://www.docker.com/). Then clone this GitHub repository and run the following command at the command line/terminal from the root directory of this project:
+
+```
+docker run --rm -v /$(pwd):"/DSCI522_410" luhuayue/g410 bash -c "make -C /DSCI522_410 all"
+```
 
 To reset the repo to a clean state, with no intermediate or results files, run the following command at the command line/terminal from the root directory of this project:
 
-```make clean```
+```
+docker run --rm -v /$(pwd):"/DSCI522_410" luhuayue/g410 bash -c "make -C /DSCI522_410 clean"
+```
+
+*Note: these commands should run without any issues in Git Bash or Terminal. If you are using a Windows shell (such as Powershell), you may encounter issues. One potential solution is to replace the `$(pwd)` in the lines above with the absolute path to the cloned project location on your computer. However, it is recommended that you run the commands in Git Bash or Terminal instead.*
+
+### 2. Running our Makefile without using Docker
+
+To replicate the analysis without using docker, clone this GitHub repository, install the [dependencies](#dependencies) listed below, and run the following commands at the command line/terminal from the root directory of this project:
+
+```
+make all
+```
+
+To reset the repo to a clean state, with no intermediate or results files, run the following command at the command line/terminal from the root directory of this project:
+
+```
+make clean
+```
 
 ## Dependencies
 

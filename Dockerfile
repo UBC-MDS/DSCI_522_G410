@@ -1,11 +1,17 @@
 
 # Docker file 
-# DSCI_G410, Feb, 2020
+# Created collaboratively by DSCI 522 Group 410
+# Members: Merve Sahin, Sakariya Aynashe, Huayue (Luke) Lu, and Holly Williams
+# February, 2020
+#
+# This file loads all the software and libraries/packages needed to run our analysis pipeline,
+# and then runs our makefile to reproduce our analysis from beginning to end!
+#
 
-# use rocker/tidyverse as the base image
+# Use rocker/tidyverse as the base image
 FROM rocker/tidyverse
 
-# install the anaconda distribution of python
+# Install the anaconda distribution of python
 RUN wget --quiet https://repo.anaconda.com/archive/Anaconda3-2019.10-Linux-x86_64.sh -O ~/anaconda.sh && \
     /bin/bash ~/anaconda.sh -b -p /opt/conda && \
     rm ~/anaconda.sh && \
@@ -40,5 +46,5 @@ RUN conda install -y -c conda-forge altair && conda install -y selenium && \
 # Install make file
 RUN apt-get update && apt-get install make
 
-# put anaconda python in path
+# Put anaconda python in path
 ENV PATH="/opt/conda/bin:${PATH}"
