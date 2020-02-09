@@ -23,6 +23,7 @@ RUN R -e "install.packages('testthat', repos='https://cloud.r-project.org/')"
 RUN R -e "install.packages('tools', repos='https://cloud.r-project.org/')"
 RUN R -e "install.packages('cowplot', repos='https://cloud.r-project.org/')"
 RUN R -e "install.packages('RCurl', repos='https://cloud.r-project.org/')"
+RUN R -e "install.packages('kableExtra')"
 
 
 # install the anaconda distribution of python

@@ -44,13 +44,13 @@ note - the instructions in this section also depends on running this in a unix s
 To replicate the analysis, install [Docker](https://www.docker.com/). Then clone this GitHub repository and run the following command at the command line/terminal from the root directory of this project:
 
 ```
-docker run --rm -v /$(pwd):"/DSCI522_410" luhuayue/g410 bash -c "make -C /DSCI522_410 all"
+docker run --rm -v /$(pwd):"/DSCI522_410" luhuayue/g410:V1.0 bash -c "make -C /DSCI522_410 all"
 ```
 
 To reset the repo to a clean state, with no intermediate or results files, run the following command at the command line/terminal from the root directory of this project:
 
 ```
-docker run --rm -v /$(pwd):"/DSCI522_410" luhuayue/g410 bash -c "make -C /DSCI522_410 clean"
+docker run --rm -v /$(pwd):"/DSCI522_410" luhuayue/g410:V1.0 bash -c "make -C /DSCI522_410 clean"
 ```
 
 *Note: these commands should run without any issues in Git Bash or Terminal. If you are using a Windows shell (such as Powershell), you may encounter issues. One potential solution is to replace the `$(pwd)` in the lines above with the absolute path to the cloned project location on your computer. However, it is recommended that you run the commands in Git Bash or Terminal instead.*
